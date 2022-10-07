@@ -6,9 +6,7 @@ type ParamsType = {
 }
 
 export default (fastify: FastifyInstance) => {
-  fastify.route<{
-    Params: ParamsType
-  }>({
+  fastify.route<{ Params: ParamsType }>({
     method: 'GET',
     url: '/user/id/:userId',
     schema: { params: { type: 'object', properties: { userId: { type: 'string' } } } },
@@ -16,7 +14,7 @@ export default (fastify: FastifyInstance) => {
       const { userId } = request.params
       const result = await getUserById(userId)
 
-      return result.data
+      return result
     },
   })
 }

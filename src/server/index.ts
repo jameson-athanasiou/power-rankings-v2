@@ -1,6 +1,8 @@
 import Fastify from 'fastify'
 import userRoutes from './routes/user'
 import matchupRoutes from './routes/matchup'
+import avatarRoutes from './routes/avatar'
+import rankingsRoutes from './routes/rankings'
 
 const fastify = Fastify({ logger: true })
 
@@ -10,6 +12,8 @@ fastify.get('/', async (request, reply) => {
 
 userRoutes(fastify)
 matchupRoutes(fastify)
+avatarRoutes(fastify)
+rankingsRoutes(fastify)
 
 const start = async () => {
   try {
